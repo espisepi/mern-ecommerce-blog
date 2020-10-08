@@ -16,9 +16,13 @@ function HomeScreen(props) {
             <h1>HOME SCREEN</h1>
             {loading ? (<div>Loading...</div>) : 
              error ? (<div>{error}</div>) :
-            (<div>
+            (<div class="uk-child-width-expand@s uk-text-center" data-uk-grid>
                 {products.map((product) => (
-                    <h1 key={product._id}>{product.name}</h1>
+                    <>
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-body">{product.name}</div>
+                    </div>
+                    </>
                 ))}
             </div>)
              }
