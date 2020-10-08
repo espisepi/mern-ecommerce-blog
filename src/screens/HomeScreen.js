@@ -18,7 +18,7 @@ function HomeScreen(props) {
              error ? (<div>{error}</div>) :
             (<div>
                 {products.map((product) => (
-                    <h1>{product.name}</h1>
+                    <h1 key={product._id}>{product.name}</h1>
                 ))}
             </div>)
              }
