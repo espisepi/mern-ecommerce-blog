@@ -16,13 +16,13 @@ import {
     PRODUCT_REVIEW_SAVE_FAIL,
     PRODUCT_REVIEW_SAVE_SUCCESS,
   } from '../constants/productConstants';
-  import axios from 'axios';
-  import Axios from 'axios';
+  import agent from '../agents/agent';
+
 
   const listProducts = ( category = '', searchKeyword = '', sortOrder = '' ) => async (dispatch) => {
     try{
         dispatch({ type: PRODUCT_LIST_REQUEST });
-        const { data } = await axios.get('http://localhost:4000/api/products');
+        const { data } = await agent.products.all();
         dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
 
     } catch (error) {
