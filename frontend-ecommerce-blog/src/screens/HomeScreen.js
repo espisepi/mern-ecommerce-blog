@@ -16,11 +16,11 @@ function HomeScreen(props) {
             <h1>HOME SCREEN</h1>
             {loading ? (<div>Loading...</div>) : 
              error ? (<div>{error}</div>) :
-            (<div class="uk-child-width-expand@s uk-text-center" data-uk-grid>
+            (<div className="uk-child-width-expand@s uk-text-center" data-uk-grid>
                 {products.map((product) => (
                     <>
                     <div>
-                        <div class="uk-card uk-card-default uk-card-body">{product.name}</div>
+                        <div className="uk-card uk-card-default uk-card-body">{product.name}</div>
                     </div>
                     </>
                 ))}
