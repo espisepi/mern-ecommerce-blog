@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 import './App.css';
 
 import HomeScreen from './screens/HomeScreen';
+import SigninScreen from './screens/SigninScreen';
 
 // UIkit.use(Icons);
 
@@ -70,6 +71,7 @@ function App() {
         <main className="main">
           <div className="content">
             <Route path="/" exact={true} component={HomeScreen} />
+            <Route path="/signin" component={SigninScreen} />
           </div>
         </main>
 
