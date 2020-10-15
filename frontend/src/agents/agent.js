@@ -10,6 +10,14 @@ const requests = {
 
 const products = {
     all: () => requests.get('/products'),
+    search: (category, searchKeyword, sortOrder) =>
+        requests.get('/products?category=' +
+        category +
+        '&searchKeyword=' +
+        searchKeyword +
+        '&sortOrder=' +
+        sortOrder),
+    
 };
 
 const users = {

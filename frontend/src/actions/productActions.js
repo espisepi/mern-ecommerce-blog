@@ -22,9 +22,8 @@ import {
   const listProducts = ( category = '', searchKeyword = '', sortOrder = '' ) => async (dispatch) => {
     try{
         dispatch({ type: PRODUCT_LIST_REQUEST });
-        const { data } = await agent.products.all();
+        const { data } = await agent.products.search(category, searchKeyword, sortOrder);
         dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
-
     } catch (error) {
         dispatch({ type: PRODUCT_LIST_FAIL, payload: error.message });
     }
