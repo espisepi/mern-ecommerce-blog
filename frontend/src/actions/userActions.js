@@ -11,12 +11,15 @@ const update = ({ userId, name, email, password }) => async (dispatch, getState)
     const { userSignin: { userInfo } } = getState();
     dispatch({ type: USER_UPDATE_REQUEST, payload: { userId, name, email, password } });
     try {
-      const { data } = await Axios.put("/api/users/" + userId,
-        { name, email, password }, {
-        headers: {
-          Authorization: 'Bearer ' + userInfo.token
-        }
-      });
+      // const { data } = await Axios.put("http://localhost:5000/api/users/" + userId,
+      //   { name, email, password }, {
+      //   headers: {
+      //     Authorization: 'Bearer ' + userInfo.token
+      //   }
+      // });
+      console.log(userInfo.token)
+      const { data } = await agent.users.update(userId, name, email, password, userInfo.token);
+      console.log(data)
       dispatch({ type: USER_UPDATE_SUCCESS, payload: data });
       Cookie.set('userInfo', JSON.stringify(data));
     } catch (error) {
