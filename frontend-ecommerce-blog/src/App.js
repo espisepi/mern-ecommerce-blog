@@ -9,6 +9,7 @@ import './App.css';
 
 import HomeScreen from './screens/HomeScreen';
 import SigninScreen from './screens/SigninScreen';
+import ProfileScreen from './screens/ProfileScreen';
 
 // UIkit.use(Icons);
 
@@ -35,7 +36,11 @@ function App() {
           <div className="header-links">
             <a href="cart.html">Cart</a>
             {userInfo ? (
+              <>
               <Link to="/profile">{userInfo.name}</Link>
+              {console.log(userInfo)}
+              </>
+              
             ) : (
               <Link to="/signin">Sign In</Link>
             )}
@@ -72,6 +77,7 @@ function App() {
           <div className="content">
             <Route path="/" exact={true} component={HomeScreen} />
             <Route path="/signin" component={SigninScreen} />
+            <Route path="/profile" component={ProfileScreen} />
           </div>
         </main>
 
